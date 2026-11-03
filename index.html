@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroMesh IT | Soluciones Térmicas & Redes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="imagenes/logo.png" alt="HydroMesh IT Logo" class="brand-logo">
+        </div>
+        
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-contact">
+            <div class="phone-badge">
+                <i class="fas fa-headset pulse-icon"></i>
+                <div class="phone-info">
+                    <span class="lbl">Guardia Técnica 24/7</span>
+                    <span class="num">+54 2964 602060</span>
+                </div>
+            </div>
+            <a href="#contacto" class="btn-neon">Auditoría IT</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- hero seccion con tanque interactivo -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Sistemas que no sudan,<br><span class="text-cyan">redes que no caen.</span></h1>
+                <p>Llevamos la infraestructura tecnológica a un nuevo estándar. Reemplazamos la informática tradicional frágil por hardware de inmersión y redes estructuradas inmunes al polvo, calor y desgaste mecánico.</p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn-primary">Solicitar Relevamiento</a>
+                </div>
+            </div>
+            
+            <div class="hero-tank-container">
+                <div class="logo-tank" id="interactive-tank">
+                    <!-- liquido y burbujas -->
+                    <div class="liquid-level" id="liquid">
+                        <div id="bubble-container"></div>
+                    </div>
+                    <!-- servidores sumergidos  -->
+                    <div class="server-block server-short">
+                        <div class="server-lines"></div>
+                        <div class="server-lines"></div>
+                        <div class="server-lines"></div>
+                    </div>
+                    <div class="server-block server-tall">
+                        <div class="server-lines"></div>
+                        <div class="server-lines"></div>
+                        <div class="server-lines"></div>
+                    </div>
+                    <!-- reflejo frontal -->
+                    <div class="glass-reflection"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- nosotros , mision, vision, valores -->
+        <section id="nosotros" class="seccion-tecnologia">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Quiénes Somos</h2>
+                    <div class="linea-cyan"></div>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-card tilt-efect">
+                        <i class="fas fa-bullseye icon-cyan"></i>
+                        <h3>Nuestra Misión</h3>
+                        <p>Brindar infraestructura de hardware y redes de alta disponibilidad, eliminando por completo las fallas por sobrecalentamiento y polución mediante refrigeración dieléctrica y cableado blindado para industrias pesadas.</p>
+                    </div>
+                    <div class="tech-card tilt-efect">
+                        <i class="fas fa-eye icon-blue"></i>
+                        <h3>Nuestra Visión</h3>
+                        <p>Ser la empresa líder en soluciones tecnológicas extremas en Tierra del Fuego, transformando la forma en que las instituciones protegen su información y operan sin depender de climatización tradicional.</p>
+                    </div>
+                    <div class="tech-card tilt-efect">
+                        <i class="fas fa-gem icon-cyan"></i>
+                        <h3>Nuestros Valores</h3>
+                        <p><strong>Resiliencia:</strong> Sistemas que nunca se apagan. <br><strong>Innovación:</strong> Implementamos tecnología de punta. <br><strong>Soporte Crítico:</strong> Guardia técnica 24/7 y planes de contingencia irrompibles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- servicios -->
+        <section id="servicios" class="seccion-servicios">
+            <div class="container">
+                <div class="section-title center">
+                    <h2>Ecosistema de Soluciones</h2>
+                    <div class="linea-cyan mx-auto"></div>
+                    <!-- subtitulo -->
+                    <p class="subtitle" style="margin-top: 15px;">Servicios que brindamos</p>
+                </div>
+                
+                <div class="servicio-fila">
+                    <div class="servicio-info">
+                        <h3>1. Hardware por Inmersión Dieléctrica</h3>
+                        <p>Adaptación, migración a discos de estado sólido (SSD) y ensamblado de PCs y servidores para operar 100% sumergidos en fluido no conductor. Garantizamos un Uptime del 99.99%.</p>
+                        <!-- cotizacion -->
+                        <div class="precio-badge"><i class="fas fa-tag"></i> Valor: <a href="#contacto" class="link-cotizacion">Consultar cotización</a></div>
+                    </div>
+                    <div class="servicio-icono box-blue tilt-efect"><i class="fas fa-server"></i></div>
+                </div>
+
+                <div class="servicio-fila inversa">
+                    <div class="servicio-icono box-cyan tilt-efect"><i class="fas fa-network-wired"></i></div>
+                    <div class="servicio-info">
+                        <h3>2. Redes Estructuradas Industriales</h3>
+                        <p>Tendido de Fibra Óptica (OM4/OM5) y cableado UTP/STP blindado con conectores estancos IP67. Ordenamos y canalizamos cableados deficientes para mitigar desconexiones.</p>
+                        <div class="precio-badge"><i class="fas fa-tag"></i> Valor: <a href="#contacto" class="link-cotizacion">Consultar cotización</a></div>
+                    </div>
+                </div>
+
+                <div class="servicio-fila">
+                    <div class="servicio-info">
+                        <h3>3. Asistencia 24/7 y Contingencia</h3>
+                        <p>Monitoreo activo con sensores, análisis químico del fluido y copias de seguridad en la nube. Incluye capacitación en ofimática y trabajo colaborativo para el personal.</p>
+                        <div class="precio-badge"><i class="fas fa-tag"></i> Valor: <a href="#contacto" class="link-cotizacion">Consultar cotización</a></div>
+                    </div>
+                    <div class="servicio-icono box-blue tilt-efect"><i class="fas fa-database"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- equipo-->
+        <section id="equipo" class="seccion-equipo">
+            <div class="container">
+                <div class="section-title center">
+                    <h2>Nuestro Equipo</h2>
+                    <div class="linea-cyan mx-auto"></div>
+                    <p class="subtitle">Profesionales especializados en resiliencia técnica.</p>
+                </div>
+
+                <div class="equipo-grid">
+                    <div class="team-card tilt-efect">
+                        <div class="avatar-hacker"><i class="fas fa-user-astronaut"></i></div>
+                        <h3>Mateo Nieto</h3>
+                        <span class="role text-cyan">Líder de Proyecto / Hardware</span>
+                        <p>Arquitecto de soluciones térmicas. Especialista en adaptación de chasis para inmersión dieléctrica y migración a estado sólido (SSD).</p>
+                    </div>
+                    <div class="team-card tilt-efect">
+                        <div class="avatar-hacker"><i class="fas fa-network-wired"></i></div>
+                        <h3>Especialista IT</h3>
+                        <span class="role text-blue">Socio / Arquitecto de Redes</span>
+                        <p>Encargado del tendido, canalización segura y configuración de topologías Mesh para anular cuellos de botella y caídas de conectividad.</p>
+                    </div>
+                    <div class="team-card tilt-efect">
+                        <div class="avatar-hacker"><i class="fas fa-user-shield"></i></div>
+                        <h3>Técnico de Guardia</h3>
+                        <span class="role text-cyan">Socio / Asistencia 24/7</span>
+                        <p>Responsable del monitoreo remoto, análisis químico de fluidos, resolución de incidencias en Nivel 1 y ejecución de backups rutinarios.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- formulario de contacto avanzado-->
+        <section id="contacto" class="seccion-contacto">
+            <div class="container">
+                <div class="form-wrapper">
+                    <div class="form-header">
+                        <h2>Contacto y Consultas</h2>
+                        <p>Completá los datos y nuestro sistema procesará el ticket automáticamente.</p>
+                    </div>
+                    
+                    <form id="form-hydromesh" class="formulario-flotante">
+                        <div class="form-row">
+                            <div class="input-container">
+                                <input type="text" id="nombre" name="nombre" required placeholder=" ">
+                                <label for="nombre">Nombre o Razón Social *</label>
+                                <div class="focus-border"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row dual">
+                            <div class="input-container">
+                                <input type="email" id="email" name="email" required placeholder=" ">
+                                <label for="email">Correo Electrónico *</label>
+                                <div class="focus-border"></div>
+                            </div>
+                            <div class="input-container">
+                                <input type="tel" id="telefono" name="telefono" placeholder=" ">
+                                <label for="telefono">Teléfono (Opcional)</label>
+                                <div class="focus-border"></div>
+                            </div>
+                        </div>
+
+                        <!-- CAMPO ASUNTO -->
+                        <div class="form-row">
+                            <div class="input-container">
+                                <input type="text" id="asunto" name="asunto" required placeholder=" ">
+                                <label for="asunto">Asunto de la consulta *</label>
+                                <div class="focus-border"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-container select-container">
+                                <select id="servicio_id" name="servicio_id" required>
+                                    <option value="" disabled selected>Seleccione un área relacionada...</option>
+                                    <option value="inmersion">Refrigeración por Inmersión</option>
+                                    <option value="redes">Tendido de Redes / Fibra Óptica</option>
+                                    <option value="backups">Backups / Contingencia</option>
+                                    <option value="otra">Otra consulta general</option>
+                                </select>
+                                <div class="focus-border"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row" id="caja-otra" style="display: none;">
+                            <div class="input-container">
+                                <input type="text" id="otra_opcion" name="otra_opcion" placeholder=" ">
+                                <label for="otra_opcion">Especifique su necesidad *</label>
+                                <div class="focus-border"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-container">
+                                <textarea id="mensaje" name="mensaje" rows="4" required minlength="20" placeholder=" "></textarea>
+                                <label for="mensaje">Mensaje (Mínimo 20 caracteres) *</label>
+                                <div class="focus-border"></div>
+                            </div>
+                        </div>
+
+                        <!-- panel de errores paara validacion d js-->
+                        <div id="form-errores" class="panel-errores hidden"></div>
+
+                        <button type="submit" class="btn-submit-cyber">
+                            <span>Enviar Consulta</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <img src="imagenes/logo.png" alt="HydroMesh IT Logo Mini" class="footer-logo">
+            <p>Soluciones Térmicas & Redes de Alta Disponibilidad</p>
+            
+            <!-- redes sociales -->
+            <div class="redes-sociales">
+                <a href="https://wa.me/5492964602060" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/hydromesh.it" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:contacto@hydromesh.it" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <p class="copyright">&copy; 2026 HydroMesh IT. Documento Digital Protegido.</p>
+        </div>
+    </footer>
+
+    <!-- cartel d exito -->
+    <div id="modal-exito" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon"><i class="fas fa-check"></i></div>
+            <h3>¡Consulta Enviada!</h3>
+            <p>El ticket fue procesado exitosamente. Un técnico de guardia se contactará a la brevedad al correo indicado.</p>
+            <button id="btn-cerrar-modal" class="btn-neon">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

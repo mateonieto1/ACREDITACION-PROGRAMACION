@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroMesh | Centro de Comando</title>
+    <link rel="stylesheet" href="style.css"> <!-- Toma tu tipografía global -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+        body { margin: 0; background-color: #0b0c10; color: #c5c6c7; font-family: 'Open Sans', sans-serif; }
+
+        /* login pantalla dividiad*/
+        #login-section { display: flex; height: 100vh; }
+        .login-brand { flex: 1; background: linear-gradient(135deg, #0b0c10 0%, #1f2833 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; border-right: 2px solid #00E5FF; padding: 2rem; text-align: center; }
+        .login-brand i { font-size: 5rem; color: #00E5FF; margin-bottom: 1rem; }
+        .login-brand h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin: 0; text-transform: uppercase; }
+        .login-brand p { color: #a0aec0; font-size: 1.1rem; margin-top: 1rem; }
+
+        .login-form-container { flex: 1; display: flex; justify-content: center; align-items: center; background-color: #0b0c10; }
+        .login-box { width: 100%; max-width: 350px; }
+        .login-box h2 { color: #ffffff; font-family: 'Montserrat', sans-serif; margin-bottom: 2rem; font-size: 1.8rem; }
+        
+        .input-group { position: relative; margin-bottom: 1.8rem; }
+        .input-group i { position: absolute; left: 15px; top: 15px; color: #00E5FF; opacity: 0.7; }
+        .input-group input { width: 100%; background: #1f2833; border: none; border-bottom: 2px solid #334155; padding: 12px 12px 12px 40px; color: #fff; font-size: 1rem; outline: none; transition: all 0.3s; box-sizing: border-box; border-radius: 4px 4px 0 0; }
+        .input-group input:focus { border-bottom-color: #00E5FF; background: #151b22; }
+        
+        .btn-ingresar { width: 100%; padding: 14px; background: transparent; border: 2px solid #00E5FF; color: #00E5FF; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: 0.3s; font-size: 1rem; letter-spacing: 1px; border-radius: 4px; }
+        .btn-ingresar:hover { background: #00E5FF; color: #0b0c10; box-shadow: 0 0 20px rgba(0, 229, 255, 0.4); }
+        #login-error { color: #ff4655; font-size: 0.9rem; margin-bottom: 1.5rem; display: none; border-left: 3px solid #ff4655; padding-left: 10px; }
+
+        /* dashboard, diseño menu laterall */
+        #dashboard-section { display: none; height: 100vh; overflow: hidden; }
+        .dashboard-layout { display: flex; height: 100%; }
+
+        /* sidebar Fija */
+        .sidebar { width: 280px; background-color: #1f2833; display: flex; flex-direction: column; border-right: 1px solid #0b0c10; }
+        .sidebar-header { padding: 2.5rem 1.5rem; background-color: #0b0c10; border-bottom: 2px solid #00E5FF; text-align: center; }
+        .sidebar-header h2 { margin: 0; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 1.5rem; }
+        
+        .sidebar-user { padding: 2rem 1.5rem; flex-grow: 1; }
+        .sidebar-user p { color: #a0aec0; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
+        .sidebar-user h3 { color: #00E5FF; margin: 0 0 2rem 0; font-size: 1.3rem; }
+        
+        .nav-sidebar p { color: #fff; border-left: 3px solid #00E5FF; padding-left: 15px; margin-bottom: 15px; font-weight: bold; }
+        
+        .sidebar-footer { padding: 1.5rem; }
+        #btn-logout { width: 100%; padding: 12px; background: rgba(255, 70, 85, 0.1); border: 1px solid #ff4655; color: #ff4655; cursor: pointer; transition: 0.3s; text-transform: uppercase; font-weight: bold; border-radius: 4px; }
+        #btn-logout:hover { background: #ff4655; color: #fff; }
+
+        /* contenedor de la tabla */
+        .main-content { flex: 1; padding: 3rem; background-color: #0b0c10; overflow-y: auto; }
+        .main-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; border-bottom: 1px solid #1f2833; padding-bottom: 1rem; }
+        .main-header h1 { color: #ffffff; font-family: 'Montserrat', sans-serif; margin: 0; font-size: 1.8rem; }
+        .status-dot { color: #a0aec0; font-size: 0.9rem; }
+        .status-dot i { color: #00E5FF; font-size: 0.6rem; vertical-align: middle; margin-right: 5px; animation: parpadeo 2s infinite; }
+
+        @keyframes parpadeo { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+        /*  estilo tabla, bloques y tarjetas */
+        .table-container { background: transparent; }
+        table { width: 100%; border-collapse: separate; border-spacing: 0 12px; text-align: left; }
+        thead th { color: #a0aec0; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; padding: 0 1.5rem 0.5rem 1.5rem; border: none; }
+        
+        tbody tr { background-color: #1f2833; transition: transform 0.2s, box-shadow 0.2s; }
+        tbody tr:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); border-left: 2px solid #00E5FF; }
+        td { padding: 1.2rem 1.5rem; border: none; }
+        td:first-child { border-radius: 6px 0 0 6px; font-weight: bold; color: #00E5FF; }
+        td:last-child { border-radius: 0 6px 6px 0; }
+        
+        /* badges de estado */
+        .badge-nueva { background: rgba(0, 229, 255, 0.1); color: #00E5FF; padding: 0.4rem 0.8rem; border-radius: 30px; font-size: 0.75rem; border: 1px solid #00E5FF; font-weight: bold; letter-spacing: 0.5px; }
+        .badge-leida { background: rgba(160, 174, 192, 0.1); color: #a0aec0; padding: 0.4rem 0.8rem; border-radius: 30px; font-size: 0.75rem; border: 1px solid #a0aec0; }
+        
+        /* boton de acción en la tabla */
+        .btn-leer { background: #0088FF; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; transition: 0.3s; }
+        .btn-leer:hover { background: #00E5FF; color: #0b0c10; }
+    </style>
+</head>
+<body>
+
+    <!-- 1.pantalla de login-->
+    <div id="login-section">
+        <div class="login-brand">
+            <i class="fas fa-server"></i>
+            <h1>HydroMesh IT</h1>
+            <p>Portal de Gestión Operativa</p>
+        </div>
+        <div class="login-form-container">
+            <div class="login-box">
+                <h2>Bienvenido</h2>
+                <form id="form-login">
+                    <div class="input-group">
+                        <i class="fas fa-user-astronaut"></i>
+                        <input type="text" id="usuario" placeholder="Usuario ID" required autocomplete="username">
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-fingerprint"></i>
+                        <input type="password" id="password" placeholder="Clave de Seguridad" required autocomplete="current-password">
+                    </div>
+                    <div id="login-error"><i class="fas fa-times-circle"></i> Credenciales incorrectas o servidor caído</div>
+                    <button type="submit" class="btn-ingresar">Iniciar Conexión</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2.dashboard-->
+    <div id="dashboard-section">
+        <div class="dashboard-layout">
+            
+            <!-- barra Lateral -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2><i class="fas fa-shield-alt"></i> Panel IT</h2>
+                </div>
+                <div class="sidebar-user">
+                    <p>Operador Activo:</p>
+                    <h3 id="nombre-admin">Admin</h3>
+                    
+                    <div class="nav-sidebar" style="margin-top: 40px;">
+                        <p><i class="fas fa-inbox" style="margin-right: 8px;"></i> Bandeja de Entrada</p>
+                    </div>
+                </div>
+                <div class="sidebar-footer">
+                    <button id="btn-logout"><i class="fas fa-power-off"></i> Desconectar</button>
+                </div>
+            </aside>
+
+            <!-- contenido principal -->
+            <main class="main-content">
+                <div class="main-header">
+                    <h1>Consultas Entrantes</h1>
+                    <span class="status-dot"><i class="fas fa-circle"></i> Sistema En Línea</span>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Requerimiento</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-body">
+                            <!-- Las filas se inyectan acá con javascript -->
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
